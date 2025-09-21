@@ -1,0 +1,17 @@
+# Use Node 18 (Piston is Node.js based API)
+FROM node:18
+
+# Create app directory
+WORKDIR /usr/src/app
+
+# Copy all files
+COPY . .
+
+# Install API dependencies
+RUN cd api && npm install
+
+# Expose port
+EXPOSE 2000
+
+# Start the API server
+CMD ["node", "api/index.js"]
